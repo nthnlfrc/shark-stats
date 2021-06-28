@@ -1,6 +1,6 @@
 body {
- background-color: rgb(41, 41, 41);
- font-family: Arial, Helvetica, sans-serif;
+ background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
@@ -17,15 +17,20 @@ table {
     margin-left: auto;
     margin-right: auto;
     border-collapse: collapse;
+    box-shadow: 10px 10px 30px rgba(112, 112, 112, .5);
+    
+   
 }
 
 th, td, tr {
     border: 1px solid lightgray;
     border-spacing: 10px;
+    
 }
 
 
 th {
+    cursor: pointer;
     background-color: rgb(80, 80, 80);
     color: white;
     text-align: center;
@@ -36,17 +41,15 @@ th {
 }
 
 tr {
-    color: white;
     text-align: center;  
-    border-collapse: inherit;  
+    border-collapse: inherit;
 }
 
 td {
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 8px;
 }
 
 tr:hover {
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(190, 190, 190);
 }
 
