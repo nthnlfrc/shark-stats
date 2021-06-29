@@ -22,6 +22,10 @@ table {
    
 }
 
+#goalie {
+    margin-top: 30px;
+}
+
 th, td, tr {
     border: 1px solid lightgray;
     border-spacing: 10px;

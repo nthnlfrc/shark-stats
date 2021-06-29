@@ -1,129 +1,60 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="styles.css">
+    
 
 
-    <head>
-        <title>2020-21 Shark Stats</title>
-    </head>
+<head>
+    <title>2020-21 Shark Stats</title>
+</head>
 
-    <body>
+<body>
 
-
-        <h1>
-            2020-21 SAN JOSE SHARK STATS
-        </h1>
-
-      
-        <script>
-
-            let sortDirection = false;
-            let statData = [
-                { player: 'Evander Kane', position: 'F', games_played: 56, goals: 22, assists: 27, points: 49, ppg: .87, shots: 194, shooting_percentage: 11.3 },
-                { player: 'Tomas Hertl', position: 'F', games_played: 50, goals: 19, assists: 24, points: 43, ppg: .86, shots: 112, shooting_percentage: 17 },
-                { player: 'Logan Couture', position: 'F', games_played: 53, goals: 17, assists: 14, points: 31, ppg: .58, shots: 114, shooting_percentage: 14.9 },
-                { player: 'Timo Meier', position: 'F', games_played: 54, goals: 12, assists: 19, points: 31, ppg: .57, shots: 155, shooting_percentage: 7.7 },
-                { player: 'Brent Burns', position: 'D', games_played: 56, goals: 7, assists: 22, points: 29, ppg: .52, shots: 138, shooting_percentage: 5.1 },
-                { player: 'Kevin Labanc', position: 'F', games_played: 56, goals: 12, assists: 16, points: 28, ppg: .50, shots: 129, shooting_percentage: 9.3 },
-                { player: 'Erik Karlsson', position: 'D', games_played: 52, goals: 8, assists: 14, points: 22, ppg: .42, shots: 110, shooting_percentage: 7.3 },
-                { player: 'Ryan Donato', position: 'F', games_played: 50, goals: 6, assists: 14, points: 20, ppg: .38, shots: 104, shooting_percentage: 5.8 },
-                { player: 'Rudolf Balcers', position: 'F', games_played: 41, goals: 8, assists: 9, points: 17, ppg: .41, shots: 66, shooting_percentage: 12.1 },
-                { player: 'Mario Ferraro', position: 'D', games_played: 56, goals: 1, assists: 16, points: 17, ppg: .30, shots: 58, shooting_percentage: 1.7 },
-                { player: 'John Leonard', position: 'F', games_played: 44, goals: 3, assists: 10, points: 13, ppg: .30, shots: 59, shooting_percentage: 5.1 },
-                { player: 'Dylan Gambrell', position: 'F', games_played: 49, goals: 5, assists: 7, points: 12, ppg: .23, shots: 48, shooting_percentage: 10.4 },
-                { player: 'Nikolai Knyzhov', position: 'D', games_played: 56, goals: 2, assists: 8, points: 10, ppg: .18, shots: 51, shooting_percentage: 3.9 },
-                { player: 'Patrick Marleau', position: 'F', games_played: 56, goals: 4, assists: 5, points: 9, ppg: .16, shots: 54, shooting_percentage: 7.4 },
-                { player: 'Matthew Nieto', position: 'F', games_played: 28, goals: 5, assists: 2, points: 7, ppg: .25, shots: 45, shooting_percentage: 11.1 },
-                { player: 'Alexander Barabonov', position: 'F', games_played: 9, goals: 3, assists: 4, points: 7, ppg: .77, shots: 12, shooting_percentage: 25 },
-                { player: 'Noah Gregor', position: 'F', games_played: 30, goals: 5, assists: 1, points: 6, ppg: .20, shots: 60, shooting_percentage: 8.3 },
-                { player: 'Radim Simek', position: 'D', games_played: 40, goals: 2, assists: 4, points: 6, ppg: .15, shots: 26, shooting_percentage: 7.7 },
-                { player: 'Marc-Edouard Vlasic', position: 'D', games_played: 40, goals: 2, assists: 4, points: 6, ppg: .15, shots: 37, shooting_percentage: 2.7 },
-                { player: 'Marcus Sorensen', position: 'F', games_played: 29, goals: 1, assists: 4, points: 5, ppg: .17, shots: 26, shooting_percentage: 3.8 },
-            ];
-
-            
-
-            window.onload = () => {
-                loadTableData(statData);
-            };
-        
-            
-
-            function loadTableData(statData) {
-                const tableBody = document.getElementById('tableData');
-                let dataHtml = '';
-
-                for (let stat of statData) {
-                    dataHtml += 
-                        `<tr>
-                            <td>${stat.player}</td>
-                            <td>${stat.games_played}</td>
-                            <td>${stat.goals}</td>
-                            <td>${stat.assists}</td>
-                            <td>${stat.points}</td>
-                            <td>${stat.ppg}</td>
-                            <td>${stat.shots}</td>
-                            <td>${stat.shooting_percentage}</td>
-                        </tr>` ;
-
-                        // For position to appear in chart, remove <!--- ---> in HTML //
-                        // <td>${stat.position}</td> //
-                        
-                }
-
-                tableBody.innerHTML = dataHtml;
-            }
-
-            function sortColumn(columnName) {
-                const dataType = typeof statData[0][columnName];
-                sortDirection = !sortDirection;
-
-                switch(dataType) {
-                    case 'number':
-                    sortNumberColumn(sortDirection, columnName);
-                    break;
-                }
-
-                loadTableData(statData);
-
-
-
-            }
-
-
-            function sortNumberColumn(sort, columnName) {
-                statData = statData.sort((s1, s2) => {
-                    return sort ? s1[columnName] - s2[columnName] : s2[columnName] - s1[columnName]
-                });
-
-            }
-
-
-        </script>
-
-
-        <table>
-            <thead>
-                <tr>
-                    <th onclick="sortColumn('player')">PLAYER</th>
-                    <!--- <th onclick="sortColumn('position')">POSITION</th> --->
-                    <th onclick="sortColumn('games_played')">GP</th>
-                    <th onclick="sortColumn('goals')">GOALS</th>
-                    <th onclick="sortColumn('assists')">ASSISTS</th>
-                    <th onclick="sortColumn('points')">POINTS</th>
-                    <th onclick="sortColumn('ppg')">PPG</th>
-                    <th onclick="sortColumn('shots')">SHOTS</th>
-                    <th onclick="sortColumn('shooting_percentage')">S%</th>
-                </tr>
-            </thead>
-
-            <tbody id="tableData"></tbody>
-        </table>
+    <h1>
+        2020-21 SAN JOSE SHARK STATS
+    </h1>
 
         
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortPlayerColumn('player')">PLAYER</th>
+                <th onclick="sortPlayerColumn('games_played')">GP</th>
+                <th onclick="sortPlayerColumn('goals')">GOALS</th>
+                <th onclick="sortPlayerColumn('assists')">ASSISTS</th>
+                <th onclick="sortPlayerColumn('points')">POINTS</th>
+                <th onclick="sortPlayerColumn('ppg')">PPG</th>
+                <th onclick="sortPlayerColumn('shots')">SHOTS</th>
+                <th onclick="sortPlayerColumn('shooting_percentage')">S%</th>
+            </tr>
+        </thead>
+
+        <tbody id="tablePlayerData"></tbody>
+    </table>
 
 
-    </body>
+    <table id="goalie">
+        <thead>
+            <tr>
+                <th onclick="sortGoalieColumn('player')">PLAYER</th>
+                <th onclick="sortGoalieColumn('games_started')">GS</th>
+                <th onclick="sortGoalieColumn('wins')">W</th>
+                <th onclick="sortGoalieColumn('losses')">L</th>
+                <th onclick="sortGoalieColumn('saves')">SAVES</th>
+                <th onclick="sortGoalieColumn('save_percentage')">SV%</th>
+                <th onclick="sortGoalieColumn('ga')">GA</th>
+                <th onclick="sortGoalieColumn('gaa')">GAA</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableGoalieData"></tbody>
+    </table>
+
+
+            
+<script src="stats.js"></script>
+</body>
+
 
 
 
