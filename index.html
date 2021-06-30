@@ -34,8 +34,9 @@
 
 
     <table id="goalie">
+        
         <thead>
-            <tr>
+            <tr id="headtest">
                 <th onclick="sortGoalieColumn('player')">PLAYER</th>
                 <th onclick="sortGoalieColumn('games_started')">GS</th>
                 <th onclick="sortGoalieColumn('wins')">W</th>
@@ -46,12 +47,14 @@
                 <th onclick="sortGoalieColumn('gaa')">GAA</th>
             </tr>
         </thead>
+        
 
         <tbody id="tableGoalieData"></tbody>
     </table>
 
 
-            
+<footer>
+</footer>            
 <script src="stats.js"></script>
 </body>
 

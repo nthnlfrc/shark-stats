@@ -30,7 +30,6 @@ let goalieData = [
 ];
 
 
-
 window.onload = function loadTables(){
     loadTablePlayerData(playerData);
     loadTableGoalieData(goalieData);

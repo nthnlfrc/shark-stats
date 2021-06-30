@@ -16,22 +16,10 @@ table {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    border-collapse: collapse;
-    box-shadow: 10px 10px 30px rgba(112, 112, 112, .5);
-    
-   
+    border-spacing: 0;
+    box-shadow: -0px 15px 15px rgba(112, 112, 112, .5);
+    border-radius: 20px;
 }
-
-#goalie {
-    margin-top: 30px;
-}
-
-th, td, tr {
-    border: 1px solid lightgray;
-    border-spacing: 10px;
-    
-}
-
 
 th {
     cursor: pointer;
@@ -42,11 +30,25 @@ th {
     padding-top: 5px;
     padding-left: 5px;
     padding-bottom: 5px;
+
+}
+
+
+#goalie {
+    margin-top: 80px;
+}
+
+
+th:first-child, td:first-child {
+border-top-left-radius: 15px;
+}
+th:last-child, td:last-child {
+border-top-right-radius: 15px;
 }
 
 tr {
+    
     text-align: center;  
-    border-collapse: inherit;
 }
 
 td {
@@ -55,5 +57,9 @@ td {
 
 tr:hover {
     background-color: rgb(190, 190, 190);
+}
+
+footer {
+    height: 80px;
 }
 
