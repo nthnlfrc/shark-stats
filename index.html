@@ -19,13 +19,13 @@
         <thead>
             <tr>
                 <th onclick="sortPlayerColumn('player')">PLAYER</th>
-                <th onclick="sortPlayerColumn('games_played')">GP</th>
-                <th onclick="sortPlayerColumn('goals')">GOALS</th>
-                <th onclick="sortPlayerColumn('assists')">ASSISTS</th>
-                <th onclick="sortPlayerColumn('points')">POINTS</th>
-                <th onclick="sortPlayerColumn('ppg')">PPG</th>
-                <th onclick="sortPlayerColumn('shots')">SHOTS</th>
-                <th onclick="sortPlayerColumn('shooting_percentage')">S%</th>
+                <th class="parentCell" onclick="sortPlayerColumn('games_played')"> GP <span class="tooltip">Games Played</span></th> 
+                <th class="parentCell" onclick="sortPlayerColumn('goals')">G<span class="tooltip">Goals</span></th>
+                <th class="parentCell" onclick="sortPlayerColumn('assists')">A<span class="tooltip">Assists</span></th>
+                <th class="parentCell" onclick="sortPlayerColumn('points')">P<span class="tooltip">Points</span></th>
+                <th class="parentCell" onclick="sortPlayerColumn('ppg')">PPG<span class="tooltip">Points Per Game</span></th>
+                <th class="parentCell" onclick="sortPlayerColumn('shots')">S<span class="tooltip">Shots</span></th>
+                <th class="parentCell" onclick="sortPlayerColumn('shooting_percentage')">S%<span class="tooltip">Shooting Percentage</span></th>
             </tr>
         </thead>
 
@@ -33,18 +33,21 @@
     </table>
 
 
+    </table>
+
+
     <table id="goalie">
         
         <thead>
-            <tr id="headtest">
+            <tr>
                 <th onclick="sortGoalieColumn('player')">PLAYER</th>
-                <th onclick="sortGoalieColumn('games_started')">GS</th>
-                <th onclick="sortGoalieColumn('wins')">W</th>
-                <th onclick="sortGoalieColumn('losses')">L</th>
-                <th onclick="sortGoalieColumn('saves')">SAVES</th>
-                <th onclick="sortGoalieColumn('save_percentage')">SV%</th>
-                <th onclick="sortGoalieColumn('ga')">GA</th>
-                <th onclick="sortGoalieColumn('gaa')">GAA</th>
+                <th class="parentCell" onclick="sortGoalieColumn('games_started')">GS<span class="tooltip">Games Started</span></th>
+                <th class="parentCell" onclick="sortGoalieColumn('wins')">W<span class="tooltip">Wins</span></th>
+                <th class="parentCell" onclick="sortGoalieColumn('losses')">L<span class="tooltip">Losses</span></th>
+                <th class="parentCell" onclick="sortGoalieColumn('saves')">SV<span class="tooltip">Saves</span></th>
+                <th class="parentCell" onclick="sortGoalieColumn('save_percentage')">SV%<span class="tooltip">Save Percentage</span></th>
+                <th class="parentCell" onclick="sortGoalieColumn('ga')">GA<span class="tooltip">Goals Against</span></th>
+                <th class="parentCell" onclick="sortGoalieColumn('gaa')">GAA<span class="tooltip">Goals Against Averager</span></th>
             </tr>
         </thead>
         
