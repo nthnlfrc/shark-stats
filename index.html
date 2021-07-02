@@ -14,30 +14,55 @@
         2020-21 SAN JOSE SHARK STATS
     </h1>
 
+<!--- Player Table -->        
+<div id="playerelements">
+
+    <div class="radiobuttons">
+            <div class="buttons">
+            <label class="radioinline">
+            <input type="radio" name="position" id="All" checked>All
+            </label>
+             </div>
         
-    <table>
-        <thead>
-            <tr>
-                <th onclick="sortPlayerColumn('player')">PLAYER</th>
-                <th class="parentCell" onclick="sortPlayerColumn('games_played')"> GP <span class="tooltip">Games Played</span></th> 
-                <th class="parentCell" onclick="sortPlayerColumn('goals')">G<span class="tooltip">Goals</span></th>
-                <th class="parentCell" onclick="sortPlayerColumn('assists')">A<span class="tooltip">Assists</span></th>
-                <th class="parentCell" onclick="sortPlayerColumn('points')">P<span class="tooltip">Points</span></th>
-                <th class="parentCell" onclick="sortPlayerColumn('ppg')">PPG<span class="tooltip">Points Per Game</span></th>
-                <th class="parentCell" onclick="sortPlayerColumn('shots')">S<span class="tooltip">Shots</span></th>
-                <th class="parentCell" onclick="sortPlayerColumn('shooting_percentage')">S%<span class="tooltip">Shooting Percentage</span></th>
-            </tr>
-        </thead>
+            <br>
+            <div class="buttons">
+            <label class="radioinline">
+            <input type="radio" name="position" id="Forwards" >Forwards
+            </label>
+            </div>
 
-        <tbody id="tablePlayerData"></tbody>
+            <br>
+            <div class="buttons">
+            <label class="radioinline">
+            <input type="radio" name="position" id="Defensemen" >Defensemen
+            </label>
+            </div>  
+    </div>
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortPlayerColumn('player')">PLAYER</th>
+                    <th class="parentCell" onclick="sortPlayerColumn('games_played')"> GP <span class="tooltip">Games Played</span></th> 
+                    <th class="parentCell" onclick="sortPlayerColumn('goals')">G<span class="tooltip">Goals</span></th>
+                    <th class="parentCell" onclick="sortPlayerColumn('assists')">A<span class="tooltip">Assists</span></th>
+                    <th class="parentCell" onclick="sortPlayerColumn('points')">P<span class="tooltip">Points</span></th>
+                    <th class="parentCell" onclick="sortPlayerColumn('ppg')">PPG<span class="tooltip">Points Per Game</span></th>
+                    <th class="parentCell" onclick="sortPlayerColumn('shots')">S<span class="tooltip">Shots</span></th>
+                    <th class="parentCell" onclick="sortPlayerColumn('shooting_percentage')">S%<span class="tooltip">Shooting Percentage</span></th>
+                </tr>
+            </thead>
+            <tbody id="tablePlayerData"></tbody>
+        </table>
+
+</div>  
+
+
     </table>
 
-
-    </table>
-
-
+<!--- Goalie Table -->   
     <table id="goalie">
-        
         <thead>
             <tr>
                 <th onclick="sortGoalieColumn('player')">PLAYER</th>
@@ -49,9 +74,7 @@
                 <th class="parentCell" onclick="sortGoalieColumn('ga')">GA<span class="tooltip">Goals Against</span></th>
                 <th class="parentCell" onclick="sortGoalieColumn('gaa')">GAA<span class="tooltip">Goals Against Averager</span></th>
             </tr>
-        </thead>
-        
-
+        </thead>        
         <tbody id="tableGoalieData"></tbody>
     </table>
 
@@ -60,8 +83,4 @@
 </footer>            
 <script src="stats.js"></script>
 </body>
-
-
-
-
 </html>
