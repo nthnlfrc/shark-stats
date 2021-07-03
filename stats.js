@@ -21,6 +21,8 @@ let playerData = [
     { player: 'Marc-Edouard Vlasic', position: 'D', games_played: 40, goals: 2, assists: 4, points: 6, ppg: .15, shots: 37, shooting_percentage: 2.7 },
     { player: 'Marcus Sorensen', position: 'F', games_played: 29, goals: 1, assists: 4, points: 5, ppg: .17, shots: 26, shooting_percentage: 3.8 },
 ];
+
+
 let goalieData = [
     { player: 'Martin Jones', games_started: 34, wins: 15, losses: 13, saves: 878, save_percentage: .896, ga: 102, gaa: 3.28 },
     { player: 'Devan Dubnyk', games_started: 13, wins: 5, losses: 9, saves: 415, save_percentage: .898, ga: 47, gaa: 3.18 },
@@ -29,11 +31,121 @@ let goalieData = [
     
 ];
 
+let forwardData = playerData.filter(playerData => playerData.position === "F");
+let defenseData = playerData.filter(playerData => playerData.position === "D");
+
 
 window.onload = function loadTables(){
-    loadTablePlayerData(playerData);
-    loadTableGoalieData(goalieData);
+    loadTablePlayerData(playerData)
+    loadTableGoalieData(goalieData)
 }
+
+loadTableForwardData(forwardData)
+loadTableDefenseData(defenseData)
+document.getElementById('ForwardTable').style.display = "none";
+document.getElementById('DefenseTable').style.display = "none";
+
+
+function playerYesNo(){
+    if (document.getElementById('AllButton').checked){
+        document.getElementById('PlayerTable').style.display = "block";
+    } else {
+        document.getElementById('PlayerTable').style.display = "none";
+}}
+
+function forwardYesNo(){
+    if (document.getElementById('ForwardButton').checked){
+        document.getElementById('ForwardTable').style.display = "block";
+    } else {
+        document.getElementById('ForwardTable').style.display = "none";
+}}
+
+function defenseYesNo(){
+    if (document.getElementById('DefenseButton').checked){
+        document.getElementById('DefenseTable').style.display = "block";
+    } else {
+        document.getElementById('DefenseTable').style.display = "none";
+}}
+
+
+
+ // Forward //           
+    function loadTableForwardData(forwardData) {
+        forwardTable = document.getElementById('tableForwardData');
+        let forwardDataHtml = ''; 
+            for (let stat of forwardData) {
+                forwardDataHtml += 
+                    `<tr>
+                        <td>${stat.player}</td>
+                        <td>${stat.games_played}</td>
+                        <td>${stat.goals}</td>
+                        <td>${stat.assists}</td>
+                        <td>${stat.points}</td>
+                        <td>${stat.ppg}</td>
+                        <td>${stat.shots}</td>
+                        <td>${stat.shooting_percentage}</td>
+                    </tr>` ;
+        }
+
+        forwardTable.innerHTML = forwardDataHtml;
+    }
+
+    function sortForwardColumn(columnNameForward) {
+        forwardDataType = typeof forwardData[0][columnNameForward];
+        sortDirection = !sortDirection;
+
+        switch(forwardDataType) {
+            case 'number':
+            sortForwardNumberColumn(sortDirection, columnNameForward);
+            break;
+        }
+
+        loadTableForwardData(forwardData);
+    }   
+
+    function sortForwardNumberColumn(sort, columnNameForward) {
+        forwardData = forwardData.sort((f1, f2) => {
+        return sort ? f1[columnNameForward] - f2[columnNameForward] : f2[columnNameForward] - f1[columnNameForward]
+    })}
+
+// Defense //           
+    function loadTableDefenseData(defenseData) {
+        defenseTable = document.getElementById('tableDefenseData');
+        let defenseDataHtml = ''; 
+            for (let stat of defenseData) {
+                defenseDataHtml += 
+                    `<tr>
+                        <td>${stat.player}</td>
+                        <td>${stat.games_played}</td>
+                        <td>${stat.goals}</td>
+                        <td>${stat.assists}</td>
+                        <td>${stat.points}</td>
+                        <td>${stat.ppg}</td>
+                        <td>${stat.shots}</td>
+                        <td>${stat.shooting_percentage}</td>
+                    </tr>` ;
+        }
+
+        defenseTable.innerHTML = defenseDataHtml;
+    }
+
+    function sortDefenseColumn(columnNameDefense) {
+        defenseDataType = typeof defenseData[0][columnNameDefense];
+        sortDirection = !sortDirection;
+
+        switch(defenseDataType) {
+            case 'number':
+            sortDefenseNumberColumn(sortDirection, columnNameDefense);
+            break;
+        }
+
+        loadTableDefenseData(defenseData);
+    }   
+
+    function sortDefenseNumberColumn(sort, columnNameDefense) {
+        defenseData = defenseData.sort((d1, d2) => {
+        return sort ? d1[columnNameDefense] - d2[columnNameDefense] : d2[columnNameDefense] - d1[columnNameDefense]
+    })}
 
 
  // Player //           
@@ -119,5 +231,3 @@ window.onload = function loadTables(){
     })
 
 }    
-
-    

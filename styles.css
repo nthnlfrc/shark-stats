@@ -41,6 +41,8 @@ table {
 }
 
 
+
+
 th {
     cursor: pointer;
     background-color: teal;
@@ -53,7 +55,7 @@ th {
     height: 30px;
 }
 
-#goalie {
+#GoalieTable {
     margin-top: 80px;
 }
 

@@ -20,26 +20,26 @@
     <div class="radiobuttons">
             <div class="buttons">
             <label class="radioinline">
-            <input type="radio" name="position" id="All" checked>All
+            <input type="radio" onclick="javascript:playerYesNo();" name="position" id="AllButton" checked>All
             </label>
              </div>
         
             <br>
             <div class="buttons">
             <label class="radioinline">
-            <input type="radio" name="position" id="Forwards" >Forwards
+            <input type="radio" onclick="javascript:forwardYesNo();" name="position" id="ForwardButton" >Forwards
             </label>
             </div>
 
             <br>
             <div class="buttons">
             <label class="radioinline">
-            <input type="radio" name="position" id="Defensemen" >Defensemen
+            <input type="radio" onclick="javascript:defenseYesNo();" name="position" id="DefenseButton" >Defensemen
             </label>
             </div>  
     </div>
 
-
+        <div id="PlayerTable">
         <table>
             <thead>
                 <tr>
@@ -55,6 +55,43 @@
             </thead>
             <tbody id="tablePlayerData"></tbody>
         </table>
+        </div>
+
+        <div  id="ForwardTable">
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortForwardColumn('player')">PLAYER</th>
+                    <th class="parentCell" onclick="sortForwardColumn('games_played')"> GP <span class="tooltip">Games Played</span></th> 
+                    <th class="parentCell" onclick="sortForwardColumn('goals')">G<span class="tooltip">Goals</span></th>
+                    <th class="parentCell" onclick="sortForwardColumn('assists')">A<span class="tooltip">Assists</span></th>
+                    <th class="parentCell" onclick="sortForwardColumn('points')">P<span class="tooltip">Points</span></th>
+                    <th class="parentCell" onclick="sortForwardColumn('ppg')">PPG<span class="tooltip">Points Per Game</span></th>
+                    <th class="parentCell" onclick="sortForwardColumn('shots')">S<span class="tooltip">Shots</span></th>
+                    <th class="parentCell" onclick="sortForwardColumn('shooting_percentage')">S%<span class="tooltip">Shooting Percentage</span></th>
+                </tr>
+            </thead>
+            <tbody id="tableForwardData"></tbody>
+        </table>
+         </div>
+
+        <div id="DefenseTable">
+        <table>
+            <thead>
+                <tr>
+                    <th onclick="sortDefenseColumn('player')">PLAYER</th>
+                    <th class="parentCell" onclick="sortDefenseColumn('games_played')"> GP <span class="tooltip">Games Played</span></th> 
+                    <th class="parentCell" onclick="sortDefenseColumn('goals')">G<span class="tooltip">Goals</span></th>
+                    <th class="parentCell" onclick="sortDefenseColumn('assists')">A<span class="tooltip">Assists</span></th>
+                    <th class="parentCell" onclick="sortDefenseColumn('points')">P<span class="tooltip">Points</span></th>
+                    <th class="parentCell" onclick="sortDefenseColumn('ppg')">PPG<span class="tooltip">Points Per Game</span></th>
+                    <th class="parentCell" onclick="sortDefenseColumn('shots')">S<span class="tooltip">Shots</span></th>
+                    <th class="parentCell" onclick="sortDefenseColumn('shooting_percentage')">S%<span class="tooltip">Shooting Percentage</span></th>
+                </tr>
+            </thead>
+            <tbody id="tableDefenseData"></tbody>
+        </table>
+        </div>
 
 </div>  
 
@@ -62,7 +99,8 @@
     </table>
 
 <!--- Goalie Table -->   
-    <table id="goalie">
+    <div  id="GoalieTable">
+    <table>
         <thead>
             <tr>
                 <th onclick="sortGoalieColumn('player')">PLAYER</th>
@@ -77,6 +115,7 @@
         </thead>        
         <tbody id="tableGoalieData"></tbody>
     </table>
+    </div>
 
 
 <footer>
