@@ -47,24 +47,24 @@ document.getElementById('DefenseTable').style.display = "none";
 
 
 function playerYesNo(){
-    if (document.getElementById('AllButton').checked){
+    if (document.getElementById('AllButton').checked) {
         document.getElementById('PlayerTable').style.display = "block";
-    } else {
-        document.getElementById('PlayerTable').style.display = "none";
-}}
+        document.getElementById('ForwardTable').style.display = "none";
+        document.getElementById('DefenseTable').style.display = "none";
+  }}
 
 function forwardYesNo(){
-    if (document.getElementById('ForwardButton').checked){
+    if (document.getElementById('ForwardButton').checked) {
         document.getElementById('ForwardTable').style.display = "block";
-    } else {
-        document.getElementById('ForwardTable').style.display = "none";
+        document.getElementById('PlayerTable').style.display = "none";
+        document.getElementById('DefenseTable').style.display = "none";
 }}
 
 function defenseYesNo(){
-    if (document.getElementById('DefenseButton').checked){
+    if (document.getElementById('DefenseButton').checked) {
         document.getElementById('DefenseTable').style.display = "block";
-    } else {
-        document.getElementById('DefenseTable').style.display = "none";
+        document.getElementById('PlayerTable').style.display = "none";
+        document.getElementById('ForwardTable').style.display = "none";
 }}
 
 
